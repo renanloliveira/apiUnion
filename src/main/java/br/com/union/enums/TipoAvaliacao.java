@@ -1,4 +1,4 @@
-package br.com.union.entities;
+package br.com.union.enums;
 
 public enum TipoAvaliacao {
 

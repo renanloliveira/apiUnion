@@ -2,24 +2,38 @@ package br.com.union.entities;
 
 import java.util.Date;
 
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
 @Data
-@Table(name = "tbl_convidado")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Convidado {
 
-	@Column
-	private String nome;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	@Column
-	private Date dataHora;
+    @Column(nullable = false)
+    private String nome;
 
-	@Column
-	private String telefone;
+    @Column
+    private Date dataHora;
 
-	@Column
-	private String especilidade;
+    @Column
+    private String telefone;
+
+    @Column
+    private String especialidade;
+
+    @OneToOne
+    private Membro membro;
 }
